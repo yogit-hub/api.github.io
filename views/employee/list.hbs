@@ -1,0 +1,39 @@
+<h1 class="text-danger">{{viewTitle}}</h1>
+
+<h3 class="text-danger"><a class="btn btn-danger" href="/"><i class="fa fa-plus"></i> Create New</a> Employee List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>Profile Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+            <td>{{this.city}}</td>
+            <td>
+
+                {{#if this.image }}
+                <img src="./{{this.image}}" alt="profile image" width="90">
+        
+                
+                  {{/if}}
+                
+            </td>
+            <td>
+                
+                <a href="/update/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+           
+            </td>
+-        </tr>
+        {{/each}}
+    </tbody>
+</table>
